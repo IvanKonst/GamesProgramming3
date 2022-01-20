@@ -219,7 +219,7 @@ void MainGame::initModels(GameObject*& asteroid)
 		float rZ = -1.0 + static_cast <float> (rand()) / (static_cast <float> (RAND_MAX / (1.0 - -1.0)));
 
 		asteroid[i].transformPositions(glm::vec3(2.0 * i * rX, 2.0 * i * rY, 2.0 * i * rX), glm::vec3(rX, rY, rZ), glm::vec3(1.1, 1.1, 1.1));
-		asteroid[i].update(&rockMesh);		
+		asteroid[i].updateAsteroidSphere(&rockMesh);		
 	}
 
 	ship.transformPositions(glm::vec3(0.0, 0.0, -3.0), glm::vec3(0.0, 0.0, 0.0), glm::vec3(0.2,0.2,0.2));
@@ -246,7 +246,7 @@ void MainGame::drawAsteriods()
 	{
 		asteroid[i].transformPositions(glm::vec3(*asteroid[i].getTM().GetPos()), glm::vec3(asteroid[i].getTM().GetRot()->x + deltaTime, asteroid[i].getTM().GetRot()->y + deltaTime, asteroid[i].getTM().GetRot()->z + deltaTime), glm::vec3(0.1, 0.1, 0.1));
 		asteroid[i].draw(&rockMesh);
-		asteroid[i].update(&rockMesh);
+		asteroid[i].updateAsteroidSphere(&rockMesh);
 		eMapping.Update(asteroid[i].getTM(), myCamera);
 	}
 }

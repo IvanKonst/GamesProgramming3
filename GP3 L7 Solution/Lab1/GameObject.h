@@ -14,7 +14,7 @@ public:
 	void update(Mesh* mesh);
 	void draw(Mesh* mesh);
 	void setActive(bool set);
-
+	void updateAsteroidSphere(Mesh* mesh);
 	bool getActive() { return active; }
 	glm::mat4 getModel() { return tObject.GetModel(); }
 	Transform getTM() { return tObject; }
